@@ -17,10 +17,7 @@ export class SweetAlertService {
       toast: true,
       showConfirmButton: false,
       timer: 2000,
-      timerProgressBar: true,
-      customClass: {
-        popup: 'alert-toast-style',
-      },
+      timerProgressBar: true
     });
 
   }
@@ -74,11 +71,7 @@ export class SweetAlertService {
       confirmButtonColor: '#425cc7ff',
       cancelButtonColor: '#d33',
       confirmButtonText,
-      cancelButtonText,
-      customClass: {
-        confirmButton: 'custom-confirm-button',
-        cancelButton: 'custom-cancel-button'
-      }
+      cancelButtonText
     });
 
   }

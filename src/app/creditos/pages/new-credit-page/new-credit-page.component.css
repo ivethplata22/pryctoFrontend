@@ -77,3 +77,27 @@ button:hover:not(:disabled) {
 .next-btn:hover:not(:disabled) {
   background-color: #004b9b;
 }
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.form-group select {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+.form-group select:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.invalid {
+  border: 1px solid red !important;
+}

@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { LayoutPageComponent } from './pages/layout-page/layout-page.component';
 import { MainPageComponent } from './pages/main-page/main-page.component';
 import { NewCreditPageComponent } from './pages/new-credit-page/new-credit-page.component';
+import { ApprovedPageComponent } from './pages/approved-page/approved-page.component';
+import { RefusedPageComponent } from './pages/refused-page/refused-page.component';
 
 const routes: Routes = [
   {
@@ -11,6 +13,8 @@ const routes: Routes = [
     children: [
       { path: 'principal', component: MainPageComponent },
       { path: 'captura-datos', component: NewCreditPageComponent },
+      { path: 'aprobada', component: ApprovedPageComponent },
+      { path: 'rechazada', component: RefusedPageComponent },
       { path: '', redirectTo: 'principal', pathMatch: 'full' },
       { path: '**', redirectTo: 'principal' }
     ]
