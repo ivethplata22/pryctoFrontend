@@ -35,6 +35,7 @@ export class SearchPageComponent {
     this._solicitudes.obtenerClienteUUID(uuid).subscribe(
       response => {
         this._solicitudes.cliente = response;
+        localStorage.setItem('clienteSearch', JSON.stringify(response));
         this.router.navigate(['/cliente']);
       },
       e => {
@@ -51,7 +52,6 @@ export class SearchPageComponent {
       'No cancelar'
     ).then((result) => {
       if (result.isConfirmed) {
-        localStorage.removeItem('cliente');
         this.router.navigate(['/']);
       }
     });
