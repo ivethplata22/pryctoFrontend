@@ -9,6 +9,7 @@ import { SearchPageComponent } from './pages/search-page/search-page.component';
 import { ClientPageComponent } from './pages/client-page/client-page.component';
 import { CreditPageComponent } from './pages/credit-page/credit-page.component';
 import { HistoryPageComponent } from './pages/history-page/history-page.component';
+import { UpdateClientPageComponent } from './pages/update-client-page/update-client-page.component';
 
 const routes: Routes = [
   {
@@ -23,6 +24,7 @@ const routes: Routes = [
       { path: 'cliente', component: ClientPageComponent },
       { path: 'captura-datos-solicitud', component: CreditPageComponent },
       { path: 'historial', component: HistoryPageComponent },
+      { path: 'actualizar', component: UpdateClientPageComponent },
       { path: '', redirectTo: 'principal', pathMatch: 'full' },
       { path: '**', redirectTo: 'principal' }
     ]

@@ -13,6 +13,7 @@ import { SearchPageComponent } from './pages/search-page/search-page.component';
 import { ClientPageComponent } from './pages/client-page/client-page.component';
 import { CreditPageComponent } from './pages/credit-page/credit-page.component';
 import { HistoryPageComponent } from './pages/history-page/history-page.component';
+import { UpdateClientPageComponent } from './pages/update-client-page/update-client-page.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { HistoryPageComponent } from './pages/history-page/history-page.componen
     SearchPageComponent,
     ClientPageComponent,
     CreditPageComponent,
-    HistoryPageComponent
+    HistoryPageComponent,
+    UpdateClientPageComponent
   ],
   imports: [
     CommonModule,

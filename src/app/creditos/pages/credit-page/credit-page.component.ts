@@ -65,8 +65,8 @@ export class CreditPageComponent implements OnInit {
     this._solicitudes.crearSolicitud(this._solicitudes.getCliente()?.uuid_cliente || '', credito.id_sucursal, credito.monto, credito.plazo).subscribe(
       response => {
         this._alerts.toastDisplay('success', response.msg);
+        localStorage.clear();
         this._solicitudes.setUUIDCliente(this._solicitudes.getCliente()?.uuid_cliente || '');
-        localStorage.removeItem('clienteSearch');
         
         if (response.estadoSolicitud === 'aprobado') {
           setTimeout(() => {

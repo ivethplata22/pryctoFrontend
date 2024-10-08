@@ -5,6 +5,18 @@ export interface ClienteRespuesta {
     email:           string;
     telefono:        string;
     direccion:       string;
-    ingreso_mensual: string;
+    ingreso_mensual: number;
     fecha_registro:  Date;
+}
+
+export interface ResponseCliente {
+    msg: string;
+}
+
+export interface Cliente {
+    nombre:         string;
+    email:          string;
+    telefono:       string;
+    direccion:      string;
+    ingresomensual: number;
 }

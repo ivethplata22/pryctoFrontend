@@ -129,8 +129,8 @@ export class NewCreditPageComponent implements OnInit {
     this._solicitudes.crearSolicitudCompleta(this.solicitudCompleta).subscribe(
       response => {
         this._alerts.toastDisplay('success', response.msg);
+        localStorage.clear();
         this._solicitudes.setUUIDCliente(response.uuidCliente);
-        localStorage.removeItem('cliente');
         
         if (response.estadoSolicitud === 'aprobado') {
           setTimeout(() => {
@@ -157,7 +157,7 @@ export class NewCreditPageComponent implements OnInit {
       'No cancelar'
     ).then((result) => {
       if (result.isConfirmed) {
-        localStorage.removeItem('cliente');
+        localStorage.clear();
         this.router.navigate(['/']);
       }
     });

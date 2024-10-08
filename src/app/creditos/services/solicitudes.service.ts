@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Sucursal } from '../interfaces/sucursales.interface';
 import { SolicitudCompleta, SolicitudesRespuestaArray, SolicitudRespuesta } from '../interfaces/solicitud.interface';
-import { ClienteRespuesta } from '../interfaces/cliente.interface';
+import { ClienteRespuesta, ResponseCliente } from '../interfaces/cliente.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -27,7 +27,7 @@ export class SolicitudesService implements OnInit {
 
   obtenerLocalStorage() {
     const localUUIDCliente = localStorage.getItem('UUIDCliente');
-    const localCliente = localStorage.getItem('cliente');
+    const localCliente = localStorage.getItem('clienteService');
 
     if(localUUIDCliente) {
       this.UUIDCliente = localUUIDCliente;
@@ -92,6 +92,20 @@ export class SolicitudesService implements OnInit {
     return this.http.get<SolicitudesRespuestaArray[]>(`${this.apiBackend}/b/solicitudes/${id_cliente}`, options);
   }
 
+  // Actualizar Cliente
+  public actualizarCliente(id_cliente: number, nombre: string, email: string, telefono: string, direccion: string, ingresomensual: number): Observable<ResponseCliente> {
+    const options = this.getOptions();
+    const body = {
+      id_cliente,
+      nombre,
+      email,
+      telefono,
+      direccion,
+      ingresomensual
+    };
+    return this.http.put<ResponseCliente>(`${this.apiBackend}/b/actualizar/${id_cliente}`, body, options);
+  }
+
   // FUNCIONES
 
   setUUIDCliente(UUIDCliente: string) {
@@ -101,7 +115,7 @@ export class SolicitudesService implements OnInit {
 
   setCliente(cliente: ClienteRespuesta | undefined) {
     this.cliente = cliente;
-    localStorage.setItem('cliente', JSON.stringify(this.cliente));
+    localStorage.setItem('clienteService', JSON.stringify(this.cliente));
   }
 
   getUUIDCliente(): string {

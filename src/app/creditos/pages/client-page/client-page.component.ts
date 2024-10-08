@@ -30,7 +30,7 @@ export class ClientPageComponent {
   }
 
   editarCliente() {
-    console.log('Editar cliente');
+    this.router.navigate(['/actualizar']);
   }
 
   volver() {
@@ -41,7 +41,7 @@ export class ClientPageComponent {
       'No cancelar'
     ).then((result) => {
       if (result.isConfirmed) {
-        localStorage.removeItem('clienteSearch');
+        localStorage.clear();
         this.router.navigate(['/']);
       }
     });
