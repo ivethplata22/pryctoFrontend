@@ -34,7 +34,7 @@ export class ClientPageComponent implements OnInit {
   }
 
   crearNuevaSolicitud() {
-    console.log('Crear nueva solicitud');
+    this.router.navigate(['/captura-datos-solicitud']);
   }
 
   editarCliente() {

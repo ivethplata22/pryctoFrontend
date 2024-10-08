@@ -1,0 +1,55 @@
+<div class="form-container">
+    <h2>Datos del Crédito</h2>
+
+    <form [formGroup]="datosCreditoForm" (ngSubmit)="onSubmitCredit()">
+        <div class="form-group">
+            <label for="id_sucursal">Selecciona una Sucursal (Opcional)</label>
+            <select 
+                id="id_sucursal"
+                formControlName="id_sucursal"
+                [class.invalid]="datosCreditoForm.get('id_sucursal')?.invalid && datosCreditoForm.get('id_sucursal')?.touched"
+            >
+                <option value="" disabled>-- Selecciona una Sucursal --</option>
+                <option *ngFor="let sucursal of sucursales" [value]="sucursal.id_sucursal">
+                    {{ sucursal.nombre_sucursal }}
+                </option>
+            </select>
+            <div class="error-message" *ngIf="datosCreditoForm.get('id_sucursal')?.invalid && datosCreditoForm.get('id_sucursal')?.touched">
+                Debes seleccionar una sucursal válida.
+            </div>
+        </div>        
+        
+        <div class="form-group">
+            <label for="monto">Monto *</label>
+            <input
+                id="monto"
+                formControlName="monto"
+                type="text"
+                required
+                [class.invalid]="datosCreditoForm.get('monto')?.invalid && datosCreditoForm.get('monto')?.touched"
+            />
+            <div class="error-message" *ngIf="datosCreditoForm.get('monto')?.invalid && datosCreditoForm.get('monto')?.touched">
+                El monto es obligatorio y debe ser un número válido.
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="plazo">Plazo (en meses) *</label>
+            <input
+                id="plazo"
+                formControlName="plazo"
+                type="text"
+                required
+                [class.invalid]="datosCreditoForm.get('plazo')?.invalid && datosCreditoForm.get('plazo')?.touched"
+            />
+            <div class="error-message" *ngIf="datosCreditoForm.get('plazo')?.invalid && datosCreditoForm.get('plazo')?.touched">
+                El plazo es obligatorio y debe ser un número valido.
+            </div>
+        </div>        
+      
+        <div class="button-group">
+            <button type="button" class="cancel-btn" (click)="regresar()">Regresar</button>
+            <button type="submit" class="next-btn" [disabled]="datosCreditoForm.invalid">Enviar</button>
+        </div>
+    </form>
+</div>

@@ -7,6 +7,7 @@ import { ApprovedPageComponent } from './pages/approved-page/approved-page.compo
 import { RefusedPageComponent } from './pages/refused-page/refused-page.component';
 import { SearchPageComponent } from './pages/search-page/search-page.component';
 import { ClientPageComponent } from './pages/client-page/client-page.component';
+import { CreditPageComponent } from './pages/credit-page/credit-page.component';
 
 const routes: Routes = [
   {
@@ -19,6 +20,7 @@ const routes: Routes = [
       { path: 'rechazada', component: RefusedPageComponent },
       { path: 'buscar', component: SearchPageComponent },
       { path: 'cliente', component: ClientPageComponent },
+      { path: 'captura-datos-solicitud', component: CreditPageComponent },
       { path: '', redirectTo: 'principal', pathMatch: 'full' },
       { path: '**', redirectTo: 'principal' }
     ]

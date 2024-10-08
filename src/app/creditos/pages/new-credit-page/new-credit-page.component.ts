@@ -111,7 +111,7 @@ export class NewCreditPageComponent implements OnInit {
   onSubmitCredit() {
 
     // Formulario no es valido
-    if(!this.datosForm.valid) {
+    if(!this.datosCreditoForm.valid) {
       this._alerts.toastDisplay('error', 'Completa todos los campos');
       return;
     }

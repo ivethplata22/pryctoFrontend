@@ -65,4 +65,16 @@ export class SolicitudesService {
     const options = this.getOptions();
     return this.http.get<ClienteRespuesta>(`${this.apiBackend}/b/cliente/${UUID}`, options);
   }
+
+  // Crear una solicitud - Información solicitud
+  public crearSolicitud(uuidcliente: string, id_sucursal: number, monto: number, plazo: number): Observable<SolicitudRespuesta> {
+    const options = this.getOptions();
+    const body = {
+      uuidcliente,
+      id_sucursal,
+      monto,
+      plazo
+    };
+    return this.http.post<SolicitudRespuesta>(`${this.apiBackend}/b/solicitudCredito`, body, options);
+  }
 }
