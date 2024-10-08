@@ -9,6 +9,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ApprovedPageComponent } from './pages/approved-page/approved-page.component';
 import { RefusedPageComponent } from './pages/refused-page/refused-page.component';
+import { SearchPageComponent } from './pages/search-page/search-page.component';
+import { ClientPageComponent } from './pages/client-page/client-page.component';
 
 
 @NgModule({
@@ -17,7 +19,9 @@ import { RefusedPageComponent } from './pages/refused-page/refused-page.componen
     MainPageComponent,
     NewCreditPageComponent,
     ApprovedPageComponent,
-    RefusedPageComponent
+    RefusedPageComponent,
+    SearchPageComponent,
+    ClientPageComponent
   ],
   imports: [
     CommonModule,

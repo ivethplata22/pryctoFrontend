@@ -13,12 +13,11 @@ export class MainPageComponent {
   ) { }
 
   nuevaSolicitud() {
-    // Aquí puedes agregar la lógica para manejar una nueva solicitud
     this.router.navigate(['/captura-datos']);
   }
 
   buscarPorUsuario() {
-    console.log('Buscar por Usuario');
+    this.router.navigate(['/buscar']);
   }
 
 }

@@ -1,0 +1,24 @@
+<div class="form-container">
+    <h2>Buscar persona</h2>
+
+    <form [formGroup]="datosForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="uuid">Identificador único *</label>
+            <input 
+                id="uuid"
+                formControlName="uuid"
+                type="text"
+                required
+                [class.invalid]="datosForm.get('uuid')?.invalid && datosForm.get('uuid')?.touched"
+            />
+            <div class="error-message" *ngIf="datosForm.get('uuid')?.invalid && datosForm.get('uuid')?.touched">
+                El identificador único es obligatorio.
+            </div>
+        </div>
+
+        <div class="button-group">
+            <button type="button" class="cancel-btn" (click)="cancelar()">Cancelar</button>
+            <button type="submit" class="next-btn" [disabled]="datosForm.invalid">Siguiente</button>
+        </div>
+    </form>
+</div>

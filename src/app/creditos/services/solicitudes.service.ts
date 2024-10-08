@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Sucursal } from '../interfaces/sucursales.interface';
 import { SolicitudCompleta, SolicitudRespuesta } from '../interfaces/solicitud.interface';
+import { ClienteRespuesta } from '../interfaces/cliente.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +15,16 @@ export class SolicitudesService {
   private appToken: string = environment.appToken;
 
   public UUIDCliente: string = '';
+  public cliente: ClienteRespuesta = {
+    id_cliente: 0,
+    uuid_cliente: '',
+    nombre_cliente: '',
+    email: '',
+    telefono: '',
+    direccion: '',
+    ingreso_mensual: '',
+    fecha_registro: new Date()
+  };
 
   constructor(
     private http: HttpClient
@@ -47,5 +58,11 @@ export class SolicitudesService {
       plazo: solicitud.plazo
     };
     return this.http.post<SolicitudRespuesta>(`${this.apiBackend}/b/solicitudCreditoCompleto`, body, options);
+  }
+
+  // Obtener cliente por UUID
+  public obtenerClienteUUID(UUID: string): Observable<ClienteRespuesta> {
+    const options = this.getOptions();
+    return this.http.get<ClienteRespuesta>(`${this.apiBackend}/b/cliente/${UUID}`, options);
   }
 }
