@@ -138,6 +138,136 @@ export class SolicitudesService implements OnInit {
         "id_sucursal": 1,
         "monto": 9000,
         "plazo": 7
+      },
+      {
+        "nombre": "Persona 3",
+        "email": "correo3@outlook.es",
+        "telefono": "5584756473",
+        "direccion": "Direccion3",
+        "ingresomensual": 10000,
+        "id_sucursal": 1,
+        "monto": 9000,
+        "plazo": 7
+      },
+      {
+        "nombre": "Persona 3",
+        "email": "correo3@outlook.es",
+        "telefono": "5584756473",
+        "direccion": "Direccion3",
+        "ingresomensual": 10000,
+        "id_sucursal": 1,
+        "monto": 9000,
+        "plazo": 7
+      },
+      {
+        "nombre": "Persona 3",
+        "email": "correo3@outlook.es",
+        "telefono": "5584756473",
+        "direccion": "Direccion3",
+        "ingresomensual": 10000,
+        "id_sucursal": 1,
+        "monto": 9000,
+        "plazo": 7
+      },
+      {
+        "nombre": "Persona 3",
+        "email": "correo3@outlook.es",
+        "telefono": "5584756473",
+        "direccion": "Direccion3",
+        "ingresomensual": 10000,
+        "id_sucursal": 1,
+        "monto": 9000,
+        "plazo": 7
+      },
+      {
+        "nombre": "Persona 3",
+        "email": "correo3@outlook.es",
+        "telefono": "5584756473",
+        "direccion": "Direccion3",
+        "ingresomensual": 10000,
+        "id_sucursal": 1,
+        "monto": 9000,
+        "plazo": 7
+      },
+      {
+        "nombre": "Persona 3",
+        "email": "correo3@outlook.es",
+        "telefono": "5584756473",
+        "direccion": "Direccion3",
+        "ingresomensual": 10000,
+        "id_sucursal": 1,
+        "monto": 9000,
+        "plazo": 7
+      },
+      {
+        "nombre": "Persona 3",
+        "email": "correo3@outlook.es",
+        "telefono": "5584756473",
+        "direccion": "Direccion3",
+        "ingresomensual": 10000,
+        "id_sucursal": 1,
+        "monto": 9000,
+        "plazo": 7
+      },
+      {
+        "nombre": "Persona 3",
+        "email": "correo3@outlook.es",
+        "telefono": "5584756473",
+        "direccion": "Direccion3",
+        "ingresomensual": 10000,
+        "id_sucursal": 1,
+        "monto": 9000,
+        "plazo": 7
+      },
+      {
+        "nombre": "Persona 3",
+        "email": "correo3@outlook.es",
+        "telefono": "5584756473",
+        "direccion": "Direccion3",
+        "ingresomensual": 10000,
+        "id_sucursal": 1,
+        "monto": 9000,
+        "plazo": 7
+      },
+      {
+        "nombre": "Persona 3",
+        "email": "correo3@outlook.es",
+        "telefono": "5584756473",
+        "direccion": "Direccion3",
+        "ingresomensual": 10000,
+        "id_sucursal": 1,
+        "monto": 9000,
+        "plazo": 7
+      },
+      {
+        "nombre": "Persona 3",
+        "email": "correo3@outlook.es",
+        "telefono": "5584756473",
+        "direccion": "Direccion3",
+        "ingresomensual": 10000,
+        "id_sucursal": 1,
+        "monto": 9000,
+        "plazo": 7
+      },
+      {
+        "nombre": "Persona 3",
+        "email": "correo3@outlook.es",
+        "telefono": "5584756473",
+        "direccion": "Direccion3",
+        "ingresomensual": 10000,
+        "id_sucursal": 1,
+        "monto": 9000,
+        "plazo": 7
+      },
+      {
+        "nombre": "Persona 3",
+        "email": "correo3@outlook.es",
+        "telefono": "5584756473",
+        "direccion": "Direccion3",
+        "ingresomensual": 10000,
+        "id_sucursal": 1,
+        "monto": 9000,
+        "plazo": 7
       }
     ];
     const options = this.getOptions();
