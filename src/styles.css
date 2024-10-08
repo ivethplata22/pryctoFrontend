@@ -23,3 +23,9 @@ h1 {
     letter-spacing: 1px;
     font-weight: bold;
 }
+
+h2 {
+    text-align: center;
+    color: #444;
+    margin-bottom: 20px;
+}

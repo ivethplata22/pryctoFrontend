@@ -1,1 +1,80 @@
-<p>new-credit-page works!</p>
+<div class="form-container">
+    <h2>Datos Personales</h2>
+
+    <form [formGroup]="datosForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="nombre">Nombre Completo *</label>
+            <input 
+                id="nombre"
+                formControlName="nombre"
+                type="text"
+                required
+                [class.invalid]="datosForm.get('nombre')?.invalid && datosForm.get('nombre')?.touched"
+            />
+            <div class="error-message" *ngIf="datosForm.get('nombre')?.invalid && datosForm.get('nombre')?.touched">
+                El nombre es obligatorio.
+            </div>
+        </div>
+      
+        <div class="form-group">
+            <label for="correo">Correo Electrónico *</label>
+            <input
+                id="correo"
+                formControlName="correo"
+                type="email"
+                required
+                [class.invalid]="datosForm.get('correo')?.invalid && datosForm.get('correo')?.touched"
+            />
+            <div class="error-message" *ngIf="datosForm.get('correo')?.invalid && datosForm.get('correo')?.touched">
+                Introduce un correo válido.
+            </div>
+        </div>
+      
+        <div class="form-group">
+            <label for="telefono">Teléfono *</label>
+            <input
+                id="telefono"
+                formControlName="telefono"
+                type="text"
+                required
+                [class.invalid]="datosForm.get('telefono')?.invalid && datosForm.get('telefono')?.touched"
+            />
+            <div class="error-message" *ngIf="datosForm.get('telefono')?.invalid && datosForm.get('telefono')?.touched">
+                El teléfono debe tener 10 dígitos.
+            </div>
+        </div>
+      
+        <div class="form-group">
+            <label for="direccion">Dirección *</label>
+            <input
+                id="direccion"
+                formControlName="direccion"
+                type="text"
+                required
+                [class.invalid]="datosForm.get('direccion')?.invalid && datosForm.get('direccion')?.touched"
+            />
+            <div class="error-message" *ngIf="datosForm.get('direccion')?.invalid && datosForm.get('direccion')?.touched">
+                La dirección es obligatoria.
+            </div>
+        </div>
+      
+        <div class="form-group">
+            <label for="ingreso">Ingreso Mensual *</label>
+            <input
+              id="ingreso"
+              formControlName="ingreso"
+              type="number"
+              required
+              [class.invalid]="datosForm.get('ingreso')?.invalid && datosForm.get('ingreso')?.touched"
+            />
+            <div class="error-message" *ngIf="datosForm.get('ingreso')?.invalid && datosForm.get('ingreso')?.touched">
+              El ingreso debe ser un número válido.
+            </div>
+        </div>
+      
+        <div class="button-group">
+            <button type="button" class="cancel-btn" (click)="cancelar()">Cancelar</button>
+            <button type="submit" class="next-btn" [disabled]="datosForm.invalid">Siguiente</button>
+        </div>
+    </form>
+</div>
