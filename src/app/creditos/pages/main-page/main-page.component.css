@@ -48,3 +48,22 @@ button:active {
 .button-simular-container button:hover {
     background-color: #218838;
 }
+
+.indicadores-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.indicador {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 15px 20px;
+    margin: 0 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.indicador h2 {
+    margin: 0;
+}

@@ -3,7 +3,7 @@ import { environment } from '../../../environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Sucursal } from '../interfaces/sucursales.interface';
-import { RespuestaSolicitudesSimulacion, SolicitudCompleta, SolicitudesRespuestaArray, SolicitudesSimulacion, SolicitudRespuesta } from '../interfaces/solicitud.interface';
+import { Indicadores, RespuestaSolicitudesSimulacion, SolicitudCompleta, SolicitudesRespuestaArray, SolicitudesSimulacion, SolicitudRespuesta } from '../interfaces/solicitud.interface';
 import { ClienteRespuesta, ResponseCliente } from '../interfaces/cliente.interface';
 
 @Injectable({
@@ -275,6 +275,12 @@ export class SolicitudesService implements OnInit {
       solicitudes
     };
     return this.http.post<RespuestaSolicitudesSimulacion>(`${this.apiBackend}/b/solicitudesCredito`, body, options);
+  }
+
+  // Obtener solicitudes por Cliente ID
+  public indicadoresSolicitudes(): Observable<Indicadores> {
+    const options = this.getOptions();
+    return this.http.get<Indicadores>(`${this.apiBackend}/b/indicadores`, options);
   }
 
   // FUNCIONES

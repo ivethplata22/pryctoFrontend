@@ -50,3 +50,8 @@ export interface Resultado {
     id_cliente:      number;
     estadoSolicitud: string;
 }
+
+export interface Indicadores {
+    totalAprobados:  number;
+    totalRechazados: number;
+}

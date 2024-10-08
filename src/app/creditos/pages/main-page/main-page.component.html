@@ -9,4 +9,13 @@
     <div class="button-simular-container">
         <button (click)="simularSolicitudes()">Simular varias solicitudes</button>
     </div>
+
+    <div class="indicadores-container">
+        <div class="indicador">
+            <h2>Aceptadas: {{ indicadores.totalAprobados }}</h2>
+        </div>
+        <div class="indicador">
+            <h2>Rechazadas: {{ indicadores.totalRechazados }}</h2>
+        </div>
+    </div>
 </div>
