@@ -29,11 +29,6 @@ export class CreditPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const clienteSearch = localStorage.getItem('clienteSearch');
-    if (clienteSearch) {
-      this._solicitudes.cliente = JSON.parse(clienteSearch) as ClienteRespuesta;
-    }
-
     this._solicitudes.obtenerSucursales().subscribe(
       response => {
         this.sucursales = response;
@@ -62,15 +57,15 @@ export class CreditPageComponent implements OnInit {
       plazo: this.datosCreditoForm.get('plazo')?.value
     };
 
-    if(!this._solicitudes.cliente.uuid_cliente) {
+    if(!this._solicitudes.getCliente()?.uuid_cliente) {
       this._alerts.toastDisplay('error', 'No es posible completar la solicitud');
       return;
     }
 
-    this._solicitudes.crearSolicitud(this._solicitudes.cliente.uuid_cliente, credito.id_sucursal, credito.monto, credito.plazo).subscribe(
+    this._solicitudes.crearSolicitud(this._solicitudes.getCliente()?.uuid_cliente || '', credito.id_sucursal, credito.monto, credito.plazo).subscribe(
       response => {
         this._alerts.toastDisplay('success', response.msg);
-        this._solicitudes.UUIDCliente = this._solicitudes.cliente.uuid_cliente;
+        this._solicitudes.setUUIDCliente(this._solicitudes.getCliente()?.uuid_cliente || '');
         localStorage.removeItem('clienteSearch');
         
         if (response.estadoSolicitud === 'aprobado') {

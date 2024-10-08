@@ -15,12 +15,12 @@ export class ApprovedPageComponent {
   ) {}
 
   volverAlInicio() {
-    this._solicitudes.UUIDCliente = '';
+    localStorage.clear();
     this.router.navigate(['/']);
   }
 
   UUID() {
-    return this._solicitudes.UUIDCliente;
+    return this._solicitudes.getUUIDCliente();
   }
 
 }

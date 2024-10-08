@@ -9,28 +9,20 @@ import { SweetAlertService } from '../../services/sweetalert.service';
   templateUrl: './client-page.component.html',
   styleUrl: './client-page.component.css'
 })
-export class ClientPageComponent implements OnInit {
+export class ClientPageComponent {
 
-  public cliente!: ClienteRespuesta;
+  public cliente: ClienteRespuesta | undefined;
 
   constructor(
     private _solicitudes: SolicitudesService,
     private router: Router,
     private _alerts: SweetAlertService,
   ) {
-    this.cliente = this._solicitudes.cliente;
-  }
-  
-  ngOnInit(): void {
-    const clienteSearch = localStorage.getItem('clienteSearch');
-    if (clienteSearch) {
-      this.cliente = JSON.parse(clienteSearch) as ClienteRespuesta;
-      this._solicitudes.cliente = this.cliente;
-    }
+    this.cliente = this._solicitudes.getCliente();
   }
 
   verHistorial() {
-    console.log('Ver historial de solicitudes');
+    this.router.navigate(['/historial']);
   }
 
   crearNuevaSolicitud() {

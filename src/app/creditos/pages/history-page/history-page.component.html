@@ -1,0 +1,27 @@
+<div class="container">
+    <h2>Historial de Solicitudes</h2>
+    <table class="solicitudes-table">
+        <thead>
+            <tr>
+                <th>Monto Solicitado</th>
+                <th>Plazo (Meses)</th>
+                <th>Tasa de Interés</th>
+                <th>Estado</th>
+                <th>Fecha de Respuesta</th>
+                <th>Sucursal</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let solicitud of historialSolicitudes">
+                <td>{{ solicitud.monto_solicitado | currency:'USD' }}</td>
+                <td>{{ solicitud.plazo_meses }}</td>
+                <td>{{ solicitud.tasa_interes | percent:'1.0-2' }}</td>
+                <td>{{ solicitud.estado_solicitud | titlecase }}</td>
+                <td>{{ solicitud.fecha_respuesta | date:'dd/MM/yyyy' }}</td>
+                <td>{{ solicitud.nombre_sucursal }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <button class="btn-regresar" (click)="regresar()">Regresar</button>
+</div>

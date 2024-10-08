@@ -12,6 +12,7 @@ import { RefusedPageComponent } from './pages/refused-page/refused-page.componen
 import { SearchPageComponent } from './pages/search-page/search-page.component';
 import { ClientPageComponent } from './pages/client-page/client-page.component';
 import { CreditPageComponent } from './pages/credit-page/credit-page.component';
+import { HistoryPageComponent } from './pages/history-page/history-page.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { CreditPageComponent } from './pages/credit-page/credit-page.component';
     RefusedPageComponent,
     SearchPageComponent,
     ClientPageComponent,
-    CreditPageComponent
+    CreditPageComponent,
+    HistoryPageComponent
   ],
   imports: [
     CommonModule,

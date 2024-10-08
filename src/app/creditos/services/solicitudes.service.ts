@@ -1,34 +1,42 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Sucursal } from '../interfaces/sucursales.interface';
-import { SolicitudCompleta, SolicitudRespuesta } from '../interfaces/solicitud.interface';
+import { SolicitudCompleta, SolicitudesRespuestaArray, SolicitudRespuesta } from '../interfaces/solicitud.interface';
 import { ClienteRespuesta } from '../interfaces/cliente.interface';
 
 @Injectable({
   providedIn: 'root'
 })
-export class SolicitudesService {
+export class SolicitudesService implements OnInit {
   // Variables Globales
   private apiBackend: string = environment.apiBackend;
   private appToken: string = environment.appToken;
 
-  public UUIDCliente: string = '';
-  public cliente: ClienteRespuesta = {
-    id_cliente: 0,
-    uuid_cliente: '',
-    nombre_cliente: '',
-    email: '',
-    telefono: '',
-    direccion: '',
-    ingreso_mensual: '',
-    fecha_registro: new Date()
-  };
+  private UUIDCliente: string = '';
+  private cliente: ClienteRespuesta | undefined = undefined;
 
   constructor(
     private http: HttpClient
   ) {}
+
+  ngOnInit(): void {
+    this.obtenerLocalStorage();
+  }
+
+  obtenerLocalStorage() {
+    const localUUIDCliente = localStorage.getItem('UUIDCliente');
+    const localCliente = localStorage.getItem('cliente');
+
+    if(localUUIDCliente) {
+      this.UUIDCliente = localUUIDCliente;
+    }
+
+    if(localCliente) {
+      this.cliente = JSON.parse(localCliente);
+    }
+  }
 
   // Headers de la peticiones
   private getOptions() {
@@ -76,5 +84,33 @@ export class SolicitudesService {
       plazo
     };
     return this.http.post<SolicitudRespuesta>(`${this.apiBackend}/b/solicitudCredito`, body, options);
+  }
+
+  // Obtener solicitudes por Cliente ID
+  public obtenerSolicitudesClienteID(id_cliente: number): Observable<SolicitudesRespuestaArray[]> {
+    const options = this.getOptions();
+    return this.http.get<SolicitudesRespuestaArray[]>(`${this.apiBackend}/b/solicitudes/${id_cliente}`, options);
+  }
+
+  // FUNCIONES
+
+  setUUIDCliente(UUIDCliente: string) {
+    this.UUIDCliente = UUIDCliente;
+    localStorage.setItem('UUIDCliente', this.UUIDCliente);
+  }
+
+  setCliente(cliente: ClienteRespuesta | undefined) {
+    this.cliente = cliente;
+    localStorage.setItem('cliente', JSON.stringify(this.cliente));
+  }
+
+  getUUIDCliente(): string {
+    this.obtenerLocalStorage();
+    return this.UUIDCliente;
+  }
+
+  getCliente(): ClienteRespuesta | undefined {
+    this.obtenerLocalStorage();
+    return this.cliente;
   }
 }

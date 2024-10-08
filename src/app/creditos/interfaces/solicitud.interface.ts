@@ -14,3 +14,18 @@ export interface SolicitudCompleta {
     monto:          number;
     plazo:          number;
 }
+
+export interface SolicitudesRespuestaArray {
+    id_solicitud:     number;
+    monto_solicitado: string;
+    plazo_meses:      number;
+    tasa_interes:     string;
+    estado_solicitud: string;
+    fecha_solicitud:  Date;
+    fecha_respuesta:  Date;
+    id_sucursal:      number;
+    nombre_sucursal:  string;
+    direccion:        string;
+    telefono:         string;
+    gerente_sucursal: string;
+}

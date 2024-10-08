@@ -13,6 +13,7 @@ export class RefusedPageComponent {
   ) {}
 
   volverAlInicio() {
+    localStorage.clear();
     this.router.navigate(['/']);
   }
 

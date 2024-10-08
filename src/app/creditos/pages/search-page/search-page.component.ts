@@ -34,7 +34,7 @@ export class SearchPageComponent {
 
     this._solicitudes.obtenerClienteUUID(uuid).subscribe(
       response => {
-        this._solicitudes.cliente = response;
+        this._solicitudes.setCliente(response);
         localStorage.setItem('clienteSearch', JSON.stringify(response));
         this.router.navigate(['/cliente']);
       },

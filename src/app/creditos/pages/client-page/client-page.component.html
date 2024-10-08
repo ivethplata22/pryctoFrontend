@@ -2,13 +2,13 @@
     <h1>Datos del Cliente</h1>
     
     <div class="cliente-info">
-        <p><strong>UUID Cliente:</strong> {{ cliente.uuid_cliente }}</p>
-        <p><strong>Nombre:</strong> {{ cliente.nombre_cliente }}</p>
-        <p><strong>Email:</strong> {{ cliente.email }}</p>
-        <p><strong>Teléfono:</strong> {{ cliente.telefono }}</p>
-        <p><strong>Dirección:</strong> {{ cliente.direccion }}</p>
-        <p><strong>Ingreso Mensual:</strong> ${{ cliente.ingreso_mensual }}</p>
-        <p><strong>Fecha de Registro:</strong> {{ cliente.fecha_registro | date: 'dd/MM/yyyy' }}</p>
+        <p><strong>UUID Cliente:</strong> {{ cliente?.uuid_cliente }}</p>
+        <p><strong>Nombre:</strong> {{ cliente?.nombre_cliente }}</p>
+        <p><strong>Email:</strong> {{ cliente?.email }}</p>
+        <p><strong>Teléfono:</strong> {{ cliente?.telefono }}</p>
+        <p><strong>Dirección:</strong> {{ cliente?.direccion }}</p>
+        <p><strong>Ingreso Mensual:</strong> ${{ cliente?.ingreso_mensual }}</p>
+        <p><strong>Fecha de Registro:</strong> {{ cliente?.fecha_registro | date: 'dd/MM/yyyy' }}</p>
     </div>
     
     <div class="buttons">
