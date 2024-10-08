@@ -29,3 +29,24 @@ export interface SolicitudesRespuestaArray {
     telefono:         string;
     gerente_sucursal: string;
 }
+
+export interface SolicitudesSimulacion {
+    nombre:         string;
+    email:          string;
+    telefono:       string;
+    direccion:      string;
+    ingresomensual: number;
+    id_sucursal:    number;
+    monto:          number;
+    plazo:          number;
+}
+
+export interface RespuestaSolicitudesSimulacion {
+    msg:        string;
+    resultados: Resultado[];
+}
+
+export interface Resultado {
+    id_cliente:      number;
+    estadoSolicitud: string;
+}

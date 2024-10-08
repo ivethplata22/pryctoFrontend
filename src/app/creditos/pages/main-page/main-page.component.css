@@ -32,3 +32,19 @@ button:hover {
 button:active {
     transform: scale(0.98);
 }
+
+.button-simular-container {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.button-simular-container button {
+    background-color: #28a745;
+    padding: 12px 25px;
+    width: auto;
+}
+
+.button-simular-container button:hover {
+    background-color: #218838;
+}

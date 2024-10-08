@@ -3,7 +3,7 @@ import { environment } from '../../../environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Sucursal } from '../interfaces/sucursales.interface';
-import { SolicitudCompleta, SolicitudesRespuestaArray, SolicitudRespuesta } from '../interfaces/solicitud.interface';
+import { RespuestaSolicitudesSimulacion, SolicitudCompleta, SolicitudesRespuestaArray, SolicitudesSimulacion, SolicitudRespuesta } from '../interfaces/solicitud.interface';
 import { ClienteRespuesta, ResponseCliente } from '../interfaces/cliente.interface';
 
 @Injectable({
@@ -41,7 +41,7 @@ export class SolicitudesService implements OnInit {
   // Headers de la peticiones
   private getOptions() {
     const headers = new HttpHeaders({
-      'apptoken': this.appToken
+      'apptoken': this.appToken,
     });
     return { headers: headers };
   }
@@ -104,6 +104,47 @@ export class SolicitudesService implements OnInit {
       ingresomensual
     };
     return this.http.put<ResponseCliente>(`${this.apiBackend}/b/actualizar/${id_cliente}`, body, options);
+  }
+
+  // Simular Varias Solicitudes de Credito
+  public simularSolicitudes(): Observable<RespuestaSolicitudesSimulacion> {
+    const solicitudes: SolicitudesSimulacion[] = [
+      {
+        "nombre": "Perdona 1",
+        "email": "correo1@outlook.es",
+        "telefono": "5574837465",
+        "direccion": "Direccion1",
+        "ingresomensual": 10000,
+        "id_sucursal": 1,
+        "monto": 300,
+        "plazo": 1
+      },
+      {
+        "nombre": "Persona 2",
+        "email": "correo2@outlook.es",
+        "telefono": "5584736454",
+        "direccion": "Direccion2",
+        "ingresomensual": 10000,
+        "id_sucursal": 1,
+        "monto": 50000,
+        "plazo": 25
+      },
+      {
+        "nombre": "Persona 3",
+        "email": "correo3@outlook.es",
+        "telefono": "5584756473",
+        "direccion": "Direccion3",
+        "ingresomensual": 10000,
+        "id_sucursal": 1,
+        "monto": 9000,
+        "plazo": 7
+      }
+    ];
+    const options = this.getOptions();
+    const body = {
+      solicitudes
+    };
+    return this.http.post<RespuestaSolicitudesSimulacion>(`${this.apiBackend}/b/solicitudesCredito`, body, options);
   }
 
   // FUNCIONES

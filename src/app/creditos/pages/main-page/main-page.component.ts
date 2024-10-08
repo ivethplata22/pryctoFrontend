@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { SolicitudesService } from '../../services/solicitudes.service';
+import { SweetAlertService } from '../../services/sweetalert.service';
 
 @Component({
   selector: 'app-main-page',
@@ -9,7 +11,9 @@ import { Router } from '@angular/router';
 export class MainPageComponent {
 
   constructor(
-    private router: Router
+    private router: Router,
+    private _solicitudes: SolicitudesService,
+    private _alerts: SweetAlertService
   ) { }
 
   nuevaSolicitud() {
@@ -18,6 +22,18 @@ export class MainPageComponent {
 
   buscarPorUsuario() {
     this.router.navigate(['/buscar']);
+  }
+
+  simularSolicitudes() {
+    this._solicitudes.simularSolicitudes().subscribe(
+      response => {
+        this._alerts.toastDisplay('success', response.msg);
+        console.log(response);
+      },
+      e => {
+        this._alerts.toastDisplay('error', e.error.msg);
+      }
+    )
   }
 
 }
